@@ -1,11 +1,18 @@
 <?php
 
+use App\Http\Controllers\_studentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/student', [_studentController::class, 'index'])->name('student.index');
+
+Route::get('/student/create', [_studentController::class, 'create'])->name('student.create');
+
+Route::post('/student', [_studentController::class, 'saveRecord'])->name('student.saveRecord');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
